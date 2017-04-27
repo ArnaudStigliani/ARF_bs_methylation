@@ -1,6 +1,6 @@
 Ce répertoire vise à étudier l'influence de la méthylation sur le binding des ARFs.
 
-Les données ont étés téléchargées depuis :
+Les données ont été téléchargées depuis :
 
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1444040
 
@@ -10,7 +10,7 @@ GSM1444040_Col0_NCBI_depth4_mCG.wig.gz
 GSM1444040_Col0_NCBI_depth4_mCHG.wig.gz  
 GSM1444040_Col0_NCBI_depth4_mCHH.wig.gz  
 
-ont étés décompressés, puis converties au format bedGraph  grace au programme "wigToBedGraph" disponible sur le site ucsc (du projet encode).
+ont été décompressés, puis converties au format bedGraph  grace au programme "wigToBedGraph" disponible sur le site ucsc (du projet encode).
 
 
 Les fichiers ont été respectivement renomés en :
