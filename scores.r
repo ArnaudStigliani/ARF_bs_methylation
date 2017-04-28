@@ -14,7 +14,7 @@ maxi_ARF <- apply(pfm_ARF,FUN=max, 2)
 maxi_ARF <- matrix(nrow=4, rep(maxi_ARF,4),byrow=TRUE)
 pwm_ARF <- log(pfm_ARF/maxi_ARF)
 pwm_ARF2_rev <- pwm_ARF - minScore(pwm_ARF)/dim(pwm_ARF)[2] 
-pwm_ARF2 <-  reverseComplement(pwm_ARF2_rev) ; pwm_ARF
+pwm_ARF2 <-  reverseComplement(pwm_ARF2_rev) ; pwm_ARF2
 
 pfm_ARF<- read.table("m_ARF5.txt",header=TRUE,sep="\t",skip=1)
 pfm_ARF <- round((t(as.matrix(pfm_ARF)))*nRegion)+1 ;pfm_ARF
@@ -23,7 +23,7 @@ maxi_ARF <- apply(pfm_ARF,FUN=max, 2)
 maxi_ARF <- matrix(nrow=4, rep(maxi_ARF,4),byrow=TRUE)
 pwm_ARF <- log(pfm_ARF/maxi_ARF)
 pwm_ARF5_rev <- pwm_ARF - minScore(pwm_ARF)/dim(pwm_ARF)[2] 
-pwm_ARF5 <-  reverseComplement(pwm_ARF5_rev) ; pwm_ARF
+pwm_ARF5 <-  reverseComplement(pwm_ARF5_rev) ; pwm_ARF5
 
 #-------------------------------------Loop ------------------------------------------
 
@@ -35,13 +35,13 @@ for (elt in list("ARF5_pos","ARF5_neg","ARF2_pos","ARF2_neg"))
     {
         pwm_ARF <- pwm_ARF5
         pwm_ARF_rev<- pwm_ARF5_rev
-        print("ARF5\n")
+        print("ARF5")
     }
     else
     {
         pwm_ARF <- pwm_ARF2
         pwm_ARF_rev<- pwm_ARF2_rev
-        print("ARF2\n")
+        print("ARF2")
     }   
 #-------------------------------------read fasta files-----------------------------------------
     ARF_pos <- readDNAStringSet(paste(elt,".fas",sep=""))
@@ -80,49 +80,49 @@ for (elt in list("ARF5_pos","ARF5_neg","ARF2_pos","ARF2_neg"))
 
 #-------------------------------------T1 -----------------------------------------
 
-    offset <- 4
+    offset <- 2
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
     pos_C <- as.integer(tab_names[,2])+pos
     T1 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------G2 -----------------------------------------
 
-    offset <- 5
+    offset <- 3
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
     pos_C <- as.integer(tab_names[,2])+pos
     G2 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------T3 -----------------------------------------
 
-    offset <- 6
+    offset <- 4
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
     pos_C <- as.integer(tab_names[,2])+pos
     T3 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------C4 -----------------------------------------
 
-    offset <- 7
+    offset <- 5
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
     pos_C <- as.integer(tab_names[,2]) + pos
     C4 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------G5 -----------------------------------------
 
-    offset <- 8
+    offset <- 6
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
     pos_C <- as.integer(tab_names[,2]) + pos
     G5 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------G6 -----------------------------------------
 
-    offset <- 9
+    offset <- 7
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
     pos_C <- as.integer(tab_names[,2]) + pos
     G6 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------sites -----------------------------------------
 
-    offset <- 3
+    offset <- 2
     pos <-  start_sites + offset
     pos_begin <- as.integer(tab_names[,2]) + pos
     sites <- data.frame(chr_reg,pos_begin,pos_begin + 6)
