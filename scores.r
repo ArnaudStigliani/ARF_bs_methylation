@@ -28,7 +28,7 @@ pwm_ARF5 <-  reverseComplement(pwm_ARF5_rev) ; pwm_ARF5
 #-------------------------------------Loop ------------------------------------------
 
 i <- 0
-for (elt in list("ARF5_pos","ARF5_neg","ARF2_pos","ARF2_neg"))
+for (elt in list("ARF5_pos"))#,"ARF5_neg","ARF2_pos","ARF2_neg"))
 {
     i <- i+1
     if (i==1 || i==2)
@@ -44,10 +44,11 @@ for (elt in list("ARF5_pos","ARF5_neg","ARF2_pos","ARF2_neg"))
         print("ARF2")
     }   
 #-------------------------------------read fasta files-----------------------------------------
+
     ARF_pos <- readDNAStringSet(paste(elt,".fas",sep=""))
 
     width_pos <- width(ARF_pos)
-    seq_pos <- as.character(ARF_pos)
+    seq_pos <- as.character(reverseComplement(ARF_pos))
 
 
 
@@ -103,21 +104,21 @@ for (elt in list("ARF5_pos","ARF5_neg","ARF2_pos","ARF2_neg"))
 
     offset <- 5
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
-    pos_C <- as.integer(tab_names[,2]) + pos
+    pos_C <- as.integer(tab_names[,2]) +pos
     C4 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------G5 -----------------------------------------
 
     offset <- 6
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
-    pos_C <- as.integer(tab_names[,2]) + pos
+    pos_C <- as.integer(tab_names[,2]) +pos
     G5 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------G6 -----------------------------------------
 
     offset <- 7
     pos <- ifelse(tab_names[,4] ==1 , start_sites + offset, start_sites_rev +11 - offset)
-    pos_C <- as.integer(tab_names[,2]) + pos
+    pos_C <- as.integer(tab_names[,2]) +pos
     G6 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------sites -----------------------------------------
