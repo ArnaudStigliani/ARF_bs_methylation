@@ -53,7 +53,7 @@ for (elt in list("ARF5_pos","ARF5_neg","ARF2_pos","ARF2_neg"))
 
 #-------------------------------------Compute Scores-----------------------------------------
 #
-    threshold <-  maxScore(pwm_ARF) - 12
+    threshold <-  maxScore(pwm_ARF) - 9
 #
     match_ARF <- sapply(FUN=matchPWM,seq_pos,pwm=pwm_ARF,min.score=threshold)
     nb_sites <- sapply(match_ARF,length)
