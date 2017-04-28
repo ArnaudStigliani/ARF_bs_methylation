@@ -9,7 +9,7 @@ library(stringr)
 
 pfm_ARF<- read.table("m_ARF2.txt",header=TRUE,sep="\t",skip=1)
 pfm_ARF <- round((t(as.matrix(pfm_ARF)))*nRegion)+1 ;pfm_ARF
-pfm_ARF <- cbind(pfm_ARF,rep(151,4),rep(151,4))
+pfm_ARF <- cbind(rep(151,4),pfm_ARF,rep(151,4))
 maxi_ARF <- apply(pfm_ARF,FUN=max, 2)
 maxi_ARF <- matrix(nrow=4, rep(maxi_ARF,4),byrow=TRUE)
 pwm_ARF <- log(pfm_ARF/maxi_ARF)
@@ -19,7 +19,7 @@ pwm_ARF <-  reverseComplement(pwm_ARF_rev) ; pwm_ARF
 #-------------------------------------read fasta files-----------------------------------------
 tair10dir <- "~/Data/tair10/tair10.fas"
 tair10 <- readDNAStringSet(tair10dir)
-ARF_pos <- readDNAStringSet('ARF5.fas')
+ARF_pos <- readDNAStringSet('ARF2_pos.fas')
 
 width_pos <- width(ARF_pos)
 seq_pos <- as.character(ARF_pos)
@@ -96,10 +96,10 @@ pos_C <- as.integer(tab_names[,2]) + pos
 G6 <- data.frame(chr_reg,pos_C,pos_C+1)
 
 
-write.table(T1,"T1_ARF5_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
-write.table(G2,"G2_ARF5_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
-write.table(T3,"T3_ARF5_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
-write.table(C4,"C4_ARF5_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
-write.table(G5,"G5_ARF5_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
-write.table(G6,"G6_ARF5_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
+write.table(T1,"T1_ARF2_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
+write.table(G2,"G2_ARF2_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
+write.table(T3,"T3_ARF2_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
+write.table(C4,"C4_ARF2_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
+write.table(G5,"G5_ARF2_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
+write.table(G6,"G6_ARF2_pos.bed",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
 
