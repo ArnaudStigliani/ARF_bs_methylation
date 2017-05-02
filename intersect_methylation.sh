@@ -30,4 +30,6 @@ sort -k1,1 -k2,2n sites_ARF5_neg.bed | mergeBed -i - | intersectBed -v -a ARF5_n
 sort -k1,1 -k2,2n sites_ARF5_pos.bed | mergeBed -i - | intersectBed -v -a ARF5_pos.bed -b - | intersectBed -a mC_all.bedGraph -b - > reg_wo_sites_C_all_met_ARF5_pos.bed &
 sort -k1,1 -k2,2n sites_ARF2_neg.bed | mergeBed -i - | intersectBed -v -a ARF2_neg.bed -b - | intersectBed -a mC_all.bedGraph -b - > reg_wo_sites_C_all_met_ARF2_neg.bed &
 sort -k1,1 -k2,2n sites_ARF2_pos.bed | mergeBed -i - | intersectBed -v -a ARF2_pos.bed -b - | intersectBed -a mC_all.bedGraph -b - > reg_wo_sites_C_all_met_ARF2_pos.bed &
+wait
+./G_or_C.sh
 exit 0

@@ -84,7 +84,7 @@ for (elt in list("ARF5_pos","ARF5_neg","ARF2_pos","ARF2_neg"))
     offset <- 3
     pos <- ifelse(tab_names[,4] ==1 , start_all_sites + offset, start_all_sites +11 - offset)
     pos_C <- as.integer(tab_names[,2])+pos
-    T1 <- data.frame(chr_reg,pos_C,pos_C+10,tab_names[,4])
+    T1 <- data.frame(chr_reg,pos_C,pos_C+1,tab_names[,4])
 
 #-------------------------------------G2 -----------------------------------------
 
