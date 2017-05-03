@@ -72,9 +72,7 @@ xlab_eff <- xlab_eff[1:26]
 
 offset <- rep(c(0.0025,0.0025,-0.0025,-0.0025),7)[1:26]
 
-#png("ARF2_ARF5_methylation_all_positions.png",width=1600,height=1000)
-#
-
+png("ARF2_ARF5_methylation_and_sample_sizes.png",width=1600,height=1000)
 par(lwd=2)
 par(mfrow=c(1,2))
 barplot(all_means_ARF2,,density=c(NA,5),space=space_bar,width=1,col=c(rep(c("cornflowerblue","cornflowerblue","cyan4","cyan4"),times=6),"coral3","coral3"),lend="butt",main="Study of methylation patern on ARF2 binding sites ",xlab="position in TGTCGG",ylim=c(0,0.3),ylab="percentage of methylated cytosine on average",cex.lab=1.5,cex.main=2)
@@ -84,7 +82,6 @@ legend('topright',legend=c("C","G","Regions with bs removed","negative"),fill=c(
 barplot(all_means_ARF5,,density=c(NA,5),space=space_bar,width=1,col=c(rep(c("cornflowerblue","cornflowerblue","cyan4","cyan4"),times=6),"coral3","coral3"),lend="butt",main="Study of methylation patern on ARF5 binding sites ",xlab="position in TGTCGG",ylim=c(0,0.3),ylab="percentage of methylated cytosine on average",cex.lab=1.5,cex.main=2)
 text(labels=round(eff_ARF5/max(eff_ARF5),3),x=xlab_eff,y=all_means_ARF5+offset+0.01,cex=1)
 legend('topright',legend=c("C","G","Regions with bs removed","negative"),fill=c("cornflowerblue","cyan4","coral3","black"),pch=NA,density=c(NA,NA,NA,10),cex=1.5)
-
 dev.off()
 
 
