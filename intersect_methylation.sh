@@ -31,5 +31,5 @@ sort -k1,1 -k2,2n sites_ARF5_pos.bed | mergeBed -i - | intersectBed -v -a <(bedt
 sort -k1,1 -k2,2n sites_ARF2_neg.bed | mergeBed -i - | intersectBed -v -a <(bedtools makewindows -b ARF2_neg.bed -n 201) -b - | intersectBed -a mC_all.bedGraph -b - > reg_wo_sites_C_all_met_ARF2_neg.bed &
 sort -k1,1 -k2,2n sites_ARF2_pos.bed | mergeBed -i - | intersectBed -v -a <(bedtools makewindows -b ARF2_pos.bed -n 201) -b - | intersectBed -a mC_all.bedGraph -b - > reg_wo_sites_C_all_met_ARF2_pos.bed &
 wait
-./G_or_C.sh
+./C_or_G.sh
 exit 0
